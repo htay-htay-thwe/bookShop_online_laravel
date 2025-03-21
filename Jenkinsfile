@@ -36,8 +36,8 @@ pipeline {
             steps {
                 withKubeConfig([credentialsId: KUBECONFIG_CREDENTIALS]) {
                     sh '''
-                    kubectl apply -f laravel-deploy.yaml
-                    kubectl apply -f mysql-deploy.yaml
+                    kubectl apply -f laravel-deploy.yaml --validate=false
+                    kubectl apply -f mysql-deploy.yaml --validate=false
                     '''
                 }
             }
