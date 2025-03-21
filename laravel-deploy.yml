@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-deployment
+  labels:
+    app: laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - name: laravel_app
+        image: htayhtaythwe717/kubernetes:1.0
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_CONNECTION
+          value: mysql
+        - name: DB_HOST
+          value: "mysql_app"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_DATABASE
+          value: book_shop_one
+        - name: DB_USERNAME
+          value: root
+        - name: DB_PASSWORD
+          value: htayhtaythwe
+        volumeMounts:
+        - name: app-data
+          mountPath: /var/www/html
+      volumes:
+        - name: app-data
+          emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-service
+spec:
+  selector:
+    app: laravel
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 8000
+  type: ClusterIP
+
