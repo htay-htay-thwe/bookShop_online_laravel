@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-              git credentialsId: 'github', branch: 'main',url: 'git@github.com:htay-htay-thwe/bookShop_online_laravel.git'
+              git credentialsId: 'github', branch: 'main',url: 'https://github.com/htay-htay-thwe/bookShop_online_laravel.git'
             }
         }
 
