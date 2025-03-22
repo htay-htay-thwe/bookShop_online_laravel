@@ -3,7 +3,7 @@ pipeline {
   agent  { label 'first_kubernetes' } 
 
     environment {
-        DOCKER_IMAGE = 'htayhtaythwe717/kubernetes'
+        DOCKER_IMAGE = 'htayhtaythwe717/kuber'
     }
 
     triggers {
