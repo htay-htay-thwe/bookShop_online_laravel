@@ -4,7 +4,6 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'htayhtaythwe717/kubernetes'
-        KUBECONFIG_CREDENTIALS = 'k8s-config'
     }
 
     triggers {
