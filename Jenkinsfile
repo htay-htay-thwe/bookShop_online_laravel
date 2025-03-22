@@ -34,7 +34,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-              kubeconfig(caCertificate: '''MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
+kubeconfig(caCertificate: '''MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
 a3ViZUNBMB4XDTI1MDMyMTA2NTEwNFoXDTM1MDMyMDA2NTEwNFowFTETMBEGA1UE
 AxMKbWluaWt1YmVDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALLc
 WM84Lgm64bYsJn6flpeoyM57Spz2rN9G0G59pd9nEbj/1jxardUY6RCbNyNE10Vf
@@ -51,12 +51,11 @@ xLEUCfXV8/Tq2P/xZ71LFob+n2EGiSm+EgRqEyJi92YxDfTfieXQmy0sZuQn3dDh
 oJYY3IBjR+AKwYj9C0VY+MiTmPwxDTiSXRTVAVW2Xswy3WZ828EefSSeyzhQV8ou
 aPnzPmzimMOfnlFKZA70WIo1uwSYQ+2Kk89vJEaTycyBYhxGVeEbm1QMQjrx0oIq
 ROvtGpKZTyPLww==''', credentialsId: 'kubectl', serverUrl: 'https://192.168.49.2:8443') {
-    sh '''
+     sh '''
                     kubectl apply -f laravel-deploy.yaml 
                     kubectl apply -f mysql-deploy.yaml 
                     '''
-}
-             
+}           
             }
         }
     }
