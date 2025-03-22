@@ -3,7 +3,7 @@ pipeline {
   agent  { label 'first_kubernetes' } 
 
     environment {
-        DOCKER_IMAGE = 'htayhtaythwe717/kuber:1.0'
+        DOCKER_IMAGE = 'htayhtaythwe717/first_kuber:1.1'
     }
 
     triggers {
@@ -20,6 +20,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE} ."
+              echo "docker build SUCESSES"
             }
         }
       stage('Push to Docker Hub') {
