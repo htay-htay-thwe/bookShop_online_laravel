@@ -3,7 +3,6 @@ pipeline {
   agent  { label 'first_kubernetes' } 
 
     environment {
-      DOCKER_HUB_CREDENTIALS_ID = 'docker-hub'
         DOCKER_IMAGE = 'htayhtaythwe717/kubernetes'
     }
 
@@ -20,14 +19,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:1.0 .'
+                sh "docker build -t ${DOCKER_IMAGE}:1.0 ."
             }
         }
 
         stage('Push to Docker Hub') {
             steps {
-                withDockerRegistry('https://registry.hub.docker.com', "${DOCKER_HUB_CREDENTIALS_ID}") {
-                    sh 'docker push $DOCKER_IMAGE:1.0'
+                 withDockerRegistry([credentialsId: 'docker-hub', url: 'https://registry.hub.docker.com']) {
+                    sh "docker push ${DOCKER_IMAGE}:1.0"
                 }
             }
         }
