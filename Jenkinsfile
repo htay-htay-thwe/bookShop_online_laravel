@@ -19,8 +19,19 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t ${DOCKER_IMAGE} ."
-              echo "docker build SUCESSES"
+              script {
+                    try {
+                        // Log in to Docker Hub registry
+                        withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://registry.hub.docker.com']) {
+                            // Try pushing the image (it won't push if it's already there, but will check if you can)
+                            sh "docker push ${DOCKER_IMAGE} --dry-run"
+                            echo "Repository exists and you have permission to push."
+                        }
+                    } catch (Exception e) {
+                        // Handle failure (repository might not exist or you don't have permission to push)
+                        echo "Repository does not exist or you do not have permission to push."
+                    }
+                }
             }
         }
       stage('Push to Docker Hub') {
