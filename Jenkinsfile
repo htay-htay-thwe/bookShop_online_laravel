@@ -26,6 +26,7 @@ pipeline {
       stage('Push to Docker Hub') {
             steps {
                 withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/']) {
+                  sh "docker tag ${DOCKER_IMAGE} docker.io/${DOCKER_IMAGE}"
                     sh "sudo docker push ${DOCKER_IMAGE}"
                 }
             }
