@@ -26,7 +26,7 @@ pipeline {
                         }
                 }
             }
-        }
+        
       stage('Push to Docker Hub') {
             steps {
                 withDockerRegistry([credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/']) {
