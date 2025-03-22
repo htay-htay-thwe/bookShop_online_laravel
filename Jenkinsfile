@@ -52,8 +52,8 @@ oJYY3IBjR+AKwYj9C0VY+MiTmPwxDTiSXRTVAVW2Xswy3WZ828EefSSeyzhQV8ou
 aPnzPmzimMOfnlFKZA70WIo1uwSYQ+2Kk89vJEaTycyBYhxGVeEbm1QMQjrx0oIq
 ROvtGpKZTyPLww==''', credentialsId: 'kubectl', serverUrl: 'https://192.168.49.2:8443') {
     sh '''
-                    kubectl apply -f laravel-deploy.yaml --validate=false
-                    kubectl apply -f mysql-deploy.yaml --validate=false
+                    kubectl apply -f laravel-deploy.yaml 
+                    kubectl apply -f mysql-deploy.yaml 
                     '''
 }
              
