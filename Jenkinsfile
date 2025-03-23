@@ -14,7 +14,8 @@ pipeline {
        stage('Clean Workspace') {
             steps {
                script{
-                  deleteDir()  // This deletes all files in the workspace
+                  deleteDir() 
+                 rm -rf *
               echo "delete work"
                }
             }
