@@ -19,6 +19,9 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage \
     && chmod -R 775 /var/www/html/bootstrap/cache
 
+RUN chown -R jenkins:jenkins /usr/local/bin/
+    
+
 EXPOSE 9000
 
 CMD ["php-fpm"]
