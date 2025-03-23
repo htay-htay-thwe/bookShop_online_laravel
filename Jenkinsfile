@@ -13,9 +13,10 @@ pipeline {
     stages {
        stage('Clean Workspace') {
             steps {
-                deleteDir()  // This deletes all files in the workspace
+               scrupt{
+                  deleteDir()  // This deletes all files in the workspace
               echo "delete work"
-
+               }
             }
         }
         stage('Checkout Code') {
