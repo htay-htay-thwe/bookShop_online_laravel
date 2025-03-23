@@ -13,7 +13,7 @@ pipeline {
     stages {
        stage('Clean Workspace') {
             steps {
-               scrupt{
+               script{
                   deleteDir()  // This deletes all files in the workspace
               echo "delete work"
                }
