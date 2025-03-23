@@ -38,7 +38,7 @@ pipeline {
                 chmod +x minikube
                 mv minikube /usr/local/bin/
 
-        su - jenkins -c "minikube start --driver=docker"
+                minikube start --driver=docker
                 '''
             }
         }
