@@ -41,6 +41,7 @@ pipeline {
                   # Ensure jenkins user is added to docker group (if needed)
         sudo usermod -aG docker jenkins
 
+
         # Switch to jenkins user (non-root user)
         su - jenkins -c "minikube start --driver=docker"
                 '''
