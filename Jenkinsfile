@@ -11,6 +11,11 @@ pipeline {
     }
 
     stages {
+       stage('Clean Workspace') {
+            steps {
+                deleteDir()  // This deletes all files in the workspace
+            }
+        }
         stage('Checkout Code') {
             steps {
               git credentialsId: 'github', branch: 'main',url: 'https://github.com/htay-htay-thwe/bookShop_online_laravel.git'
