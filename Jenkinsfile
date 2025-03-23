@@ -6,10 +6,6 @@ pipeline {
         DOCKER_IMAGE = 'htayhtaythwe717/first_kuber'
     }
 
-    triggers {
-        githubPush()  // 🚀 Automatically triggers on GitHub push
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
