@@ -1,6 +1,6 @@
 pipeline {
 
-  agent  { label 'first_kubernetes' } 
+  agent  any
 
     environment {
         DOCKER_IMAGE = 'htayhtaythwe717/first_kuber'
