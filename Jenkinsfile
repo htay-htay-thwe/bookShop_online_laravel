@@ -26,14 +26,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                sh '''
-                kubectl apply -f laravel-deploy.yaml
-                kubectl apply -f mysql-deploy.yaml
-                '''
-            }
-        }
+      
 }
 }
 
