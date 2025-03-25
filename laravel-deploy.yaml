@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: laravel_app
-        image: htayhtaythwe717/kubernetes:1.0
+        image: htayhtaythwe717/first_kuber:1.0
         ports:
         - containerPort: 8000
         env:
