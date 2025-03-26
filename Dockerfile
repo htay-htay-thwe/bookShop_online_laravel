@@ -9,10 +9,13 @@ RUN apt-get update && apt-get install -y git unzip curl libpng-dev libonig-dev l
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+COPY composer.json composer.lock ./
+
+# Install Composer dependencies
+RUN composer install --no-dev --optimize-autoloader
+
 # Copy application files
 COPY . .
-
-RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
